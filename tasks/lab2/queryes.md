@@ -878,26 +878,7 @@ print(Author.objects.filter(entry__author=None))
 
 Стандартный поиск:
 ```python
-from django.db import connection
 
-print("Число запросов = ", len(connection.queries), " Запросы = ", connection.queries)
-"""
-Число запросов =  0  Запросы =  []
-"""
-entry = Entry.objects.get(id=5)
-print("Число запросов = ", len(connection.queries), " Запросы = ", connection.queries)
-"""
-Число запросов =  1  Запросы =  [...]
-"""
-blog = entry.blog
-print("Число запросов = ", len(connection.queries), " Запросы = ", connection.queries)
-"""
-Число запросов =  2  Запросы =  [...,...]
-"""
-print('Результат запроса = ', blog)
-"""
-Результат запроса =  Путешествия по миру
-"""
 ```
 Пример с select_related
 ```python
